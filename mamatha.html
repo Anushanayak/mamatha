@@ -1,0 +1,45 @@
+<!doctype>
+<html>
+<head>
+<style>
+body {
+	margin: 0;
+}
+.abc {
+	width: 100px; 
+	height: 100px;
+	border: 10px solid #000;
+	padding: 20px;
+	margin: 50px;
+}
+@media only screen and (min-width: 767px) {
+.abc {
+	width: 100%;
+	margin: 0;
+}
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+	.abc {
+		width: 500px;
+		border: 5px solid blue;
+	}
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('a').click(function(){
+	    $('html, body').animate({
+	        scrollTop: $( $.attr(this, 'href') ).offset().top
+	    }, 500);
+	    return false;
+	}); 
+});
+</script>
+</head>
+<body>
+<a href="#abc" style="margin-bottom:1000px;display: block;">link</a>
+<div style="height: 1500px;border: 2px solid red;" id="abc" contenteditable="false">Box</div>
+
+</body>
+</html>
